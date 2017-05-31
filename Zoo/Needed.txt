@@ -1,0 +1,3 @@
+sqlite-jdbc-3.18.0
+scenebuilder-8.3.0-1.x86_64
+jdk-8u131-linux-x64 //On Fedora i needed it : P

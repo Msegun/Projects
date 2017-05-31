@@ -1,0 +1,32 @@
+CREATE TABLE stanowisko(ID INTEGER PRIMARY KEY AUTOINCREMENT,
+nazwa_stanowiska TEXT NOT NULL,
+zarobek REAL
+);
+
+CREATE TABLE pracownik(ID INTEGER PRIMARY KEY AUTOINCREMENT,
+imie text not null,
+nazwisko text not null,
+data_ur Date not null,
+stanowisko_id integer NOt NULL,
+	Foreign key(stanowisko_id) REFERENCES stanowisko(ID)
+);
+
+CREATE TABLE konto(ID INTEGER PRIMARY KEY AUTOINCREMENT,
+username text NOT NULL UNIQUE,
+password text not null,
+pracownik_id INTEGER NOT NULL,
+	Foreign key(pracownik_id) references pracownik(ID)
+);
+
+create table zwierze(ID INTEGER PRIMARY KEY AUTOINCREMENT,
+imie text NOT NULL UNIQUE,
+typ TEXT NOT NULL,
+data_przybycia DATE not null
+);
+
+CREATE TABLE zwierze_opiekun(
+opiekun_ID INTEGER NOT NULL,
+zwierze_id INTEGER NOT NULL,
+	FOREIGN KEY(opiekun_id) REFERENCES pracownik(ID),
+	FOREIGN KEY(zwierze_id) REFERENCES zwierze(ID)
+);

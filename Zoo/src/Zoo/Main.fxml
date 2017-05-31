@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Zoo.Controller">
+   <children>
+      <TabPane prefHeight="622.0" prefWidth="956.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Stanowiska">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="349.0">
+                  <HBox layoutX="280.0" layoutY="1.0" prefHeight="543.0" prefWidth="516.0">
+                     <children>
+                        <TableView fx:id="listofStanowisko" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="655.0">
+                          <columns>
+                            <TableColumn fx:id="stanidColumn" prefWidth="52.0" text="Id" />
+                            <TableColumn fx:id="stannazwaColumn" prefWidth="100.0" text="Nazwa" />
+                              <TableColumn fx:id="stanpensjaColumn" prefWidth="100.0" text="pensja" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </HBox>
+                  <VBox layoutX="2.0" prefHeight="509.0" prefWidth="279.0">
+                     <children>
+                        <Label prefHeight="34.0" prefWidth="154.0" text="Zarządzanie uczniami" textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="70.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="idField" disable="true" prefHeight="41.0" prefWidth="279.0" promptText="ID">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="nazwaField" prefHeight="41.0" prefWidth="279.0" promptText="NazwaStanowiska">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="pensjaField" prefHeight="41.0" prefWidth="279.0" promptText="Pensja">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Button fx:id="listAllStanowiskoBtn" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false" onAction="#loadStanowiskoData" style="-fx-background-color: #4fb2ff;" text="Załaduj liste stanowisk">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </Button>
+                         <Button fx:id="addStanowiskoBtn" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false" onAction="#addStanowisko" style="-fx-background-color: #4fb2ff;" text="Dodaj">
+                             <VBox.margin>
+                                 <Insets bottom="10.0" left="10.0" right="10.0" />
+                             </VBox.margin>
+                         </Button>
+                         <Button fx:id="DeleteStanowiskoBtn" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false" onAction="#DeleteStanowisko" style="-fx-background-color: #4fb2ff;" text="Usuń">
+                             <VBox.margin>
+                                 <Insets bottom="10.0" left="10.0" right="10.0" />
+                             </VBox.margin>
+                         </Button>
+                         <Button fx:id="UpdateStanowiskoBtn" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false" onAction="#editStanowisko" style="-fx-background-color: #4fb2ff;" text="Edytuj">
+                             <VBox.margin>
+                                 <Insets bottom="10.0" left="10.0" right="10.0" />
+                             </VBox.margin>
+                         </Button>
+                     </children>
+                  </VBox>
+                  </AnchorPane>
+               </content>
+          </Tab>
+            <Tab fx:id="Zwierzeta_tab" text="Zwierzęta" onSelectionChanged="#selectedTab">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="349.0">
+                        <HBox layoutX="280.0" layoutY="1.0" prefHeight="543.0" prefWidth="516.0">
+                            <children>
+                                <TableView fx:id="listofZwierze" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="655.0">
+                                    <columns>
+                                        <TableColumn fx:id="ZwierzeidColumn" prefWidth="52.0" text="Id" />
+                                        <TableColumn fx:id="ZwierzeimieColumn" prefWidth="100.0" text="Imie Zwierzecia" />
+                                        <TableColumn fx:id="zwierzeTypColumn" prefWidth="100.0" text="Typ" />
+                                        <TableColumn fx:id="zwierzeDataColumn" prefWidth="100.0" text="Data_Przybycia" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </HBox>
+                        <VBox layoutX="2.0" prefHeight="509.0" prefWidth="279.0">
+                            <children>
+                                <Label prefHeight="34.0" prefWidth="154.0" text="Zarządzanie zwierzętami" textAlignment="CENTER">
+                                    <VBox.margin>
+                                        <Insets left="70.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <TextField fx:id="idZwierzeField" disable="true" prefHeight="41.0" prefWidth="279.0" promptText="ID">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <TextField fx:id="imieZwField" prefHeight="41.0" prefWidth="279.0" promptText="Imie Zwierzęta">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <TextField fx:id="TypField" prefHeight="41.0" prefWidth="279.0" promptText="Typ">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <DatePicker fx:id="DataZwField" prefHeight="41.0" prefWidth="279.0">
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </DatePicker>
+                                <Button fx:id="listAllZwierzeBtn" onAction="#loadZwierzeData" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false"  style="-fx-background-color: #4fb2ff;" text="Załaduj liste zwierząt">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="addZwierzeBtn" onAction="#AddZwierze" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false"  style="-fx-background-color: #4fb2ff;" text="Dodaj">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="DeleteZwierzeBtn" onAction="#DeleteZwierze" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false"  style="-fx-background-color: #4fb2ff;" text="Usuń">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="UpdateZwierzeBtn" onAction="#editZwierze" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false" style="-fx-background-color: #4fb2ff;" text="Edytuj">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </AnchorPane>
+                </content>
+            </Tab>
+            <Tab fx:id="Pracownik_tab" text="Pracownik" onSelectionChanged="#selectedTab">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="349.0">
+                        <HBox layoutX="280.0" layoutY="1.0" prefHeight="543.0" prefWidth="516.0">
+                            <children>
+                                <TableView fx:id="listofPracownik" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="655.0">
+                                    <columns>
+                                        <TableColumn fx:id="PracownikidColumn" prefWidth="52.0" text="Id" />
+                                        <TableColumn fx:id="PracownikimieColumn" prefWidth="100.0" text="Imie" />
+                                        <TableColumn fx:id="PracownikNazwiskoColumn" prefWidth="100.0" text="Nazwisko" />
+                                        <TableColumn fx:id="PracownikDataColumn" prefWidth="100.0" text="Data_Ur" />
+                                        <TableColumn fx:id="Stanowisko_IDColumn" prefWidth="100.0" text="Stanowisko_ID" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </HBox>
+                        <VBox layoutX="2.0" prefHeight="509.0" prefWidth="279.0">
+                            <children>
+                                <Label prefHeight="34.0" prefWidth="154.0" text="Zarządzanie pracownikami" textAlignment="CENTER">
+                                    <VBox.margin>
+                                        <Insets left="70.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <TextField fx:id="idPracownikField" disable="true" prefHeight="41.0" prefWidth="279.0" promptText="ID">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <TextField fx:id="imiePracownikField" prefHeight="41.0" prefWidth="279.0" promptText="Imie">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <TextField fx:id="NazwiskoPracownikField" prefHeight="41.0" prefWidth="279.0" promptText="Nazwisko">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <DatePicker fx:id="DataUrPracField" prefHeight="41.0" prefWidth="279.0">
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </DatePicker>
+                                <TextField fx:id="stanIDField" prefHeight="41.0" prefWidth="279.0" promptText="StanID">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <Button fx:id="listAllPracownikBtn" onAction="#LoadallPracownik" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false"  style="-fx-background-color: #4fb2ff;" text="Załaduj liste pracowników">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="addPracownikBtn" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false"  style="-fx-background-color: #4fb2ff;" text="Dodaj">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="DeletePracownikBtn" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false"  style="-fx-background-color: #4fb2ff;" text="Usuń">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="UpdatePracownikBtn"  maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false" style="-fx-background-color: #4fb2ff;" text="Edytuj">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </AnchorPane>
+                </content>
+            </Tab>
+            <Tab fx:id="Kontotab" text="Konto" onSelectionChanged="#selectedTab">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="349.0">
+                        <HBox layoutX="280.0" layoutY="1.0" prefHeight="543.0" prefWidth="516.0">
+                            <children>
+                                <TableView fx:id="listofKonto" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="655.0">
+                                    <columns>
+                                        <TableColumn fx:id="idKontoColumn" prefWidth="52.0" text="ID" />
+                                        <TableColumn fx:id="usernameColumn" prefWidth="100.0" text="USERNAME" />
+                                        <TableColumn fx:id="passwordColumn" prefWidth="100.0" text="Password" />
+                                        <TableColumn fx:id="PracIDColumn" prefWidth="100.0" text="Prac ID" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </HBox>
+                        <VBox layoutX="2.0" prefHeight="509.0" prefWidth="279.0">
+                            <children>
+                                <Label prefHeight="34.0" prefWidth="154.0" text="Zarządzanie kontami" textAlignment="CENTER">
+                                    <VBox.margin>
+                                        <Insets left="70.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <TextField fx:id="idKontoField" disable="true" prefHeight="41.0" prefWidth="279.0" promptText="ID">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <TextField fx:id="UsernameField" prefHeight="41.0" prefWidth="279.0" promptText="Username">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <TextField fx:id="PasswordField" prefHeight="41.0" prefWidth="279.0" promptText="Password">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <TextField fx:id="PracIDField" prefHeight="41.0" prefWidth="279.0" promptText="PracID">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <Button fx:id="listAllKontoBtn" onAction="#loadKontoData" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false"  style="-fx-background-color: #4fb2ff;" text="Załaduj liste kont">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="addKontoBtn" onAction="#AddKonto" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false"  style="-fx-background-color: #4fb2ff;" text="Dodaj">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="DeleteKontoBtn" onAction="#DeleteKonto" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false"  style="-fx-background-color: #4fb2ff;" text="Usuń">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="UpdateKontoBtn" onAction="#editKonto"  maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false" style="-fx-background-color: #4fb2ff;" text="Edytuj">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </AnchorPane>
+                </content>
+            </Tab>
+            <Tab fx:id="Opiekatab" text="Opieka" onSelectionChanged="#selectedTab">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="349.0">
+                        <HBox layoutX="280.0" layoutY="1.0" prefHeight="543.0" prefWidth="516.0">
+                            <children>
+                                <TableView fx:id="listofOpieka" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="655.0">
+                                    <columns>
+                                        <TableColumn fx:id="idOpiekunColumn" prefWidth="100.0" text="Opiekun" />
+                                        <TableColumn fx:id="idZwierzeColumn" prefWidth="100.0" text="Zwierze" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </HBox>
+                        <VBox layoutX="2.0" prefHeight="509.0" prefWidth="279.0">
+                            <children>
+                                <Label prefHeight="34.0" prefWidth="154.0" text="Zarządzanie Opieką" textAlignment="CENTER">
+                                    <VBox.margin>
+                                        <Insets left="70.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <TextField fx:id="opiekunField" prefHeight="41.0" prefWidth="279.0" promptText="Opiekun">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <TextField fx:id="zwierzeField" prefHeight="41.0" prefWidth="279.0" promptText="Zwierze">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <TextField fx:id="opiekunnowyField" prefHeight="41.0" prefWidth="279.0" promptText="OpiekunEdycja">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <TextField fx:id="zwierzenowyField" prefHeight="41.0" prefWidth="279.0" promptText="ZwierzeEdycja">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <Button fx:id="listAllOpiekaBtn" onAction="#loadOpiekaData" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false"  style="-fx-background-color: #4fb2ff;" text="Załaduj liste opieki">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="addOpiekaBtn" onAction="#AddOpieka" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false"  style="-fx-background-color: #4fb2ff;" text="Dodaj">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="DeleteOpiekaBtn" onAction="#DeleteOpieka" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false"  style="-fx-background-color: #4fb2ff;" text="Usuń">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="UpdateOpiekaBtn" onAction="#editOpieka" maxHeight="66.0" maxWidth="261.0" mnemonicParsing="false" style="-fx-background-color: #4fb2ff;" text="Edytuj">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </AnchorPane>
+                </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
